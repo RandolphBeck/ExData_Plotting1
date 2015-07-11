@@ -18,9 +18,11 @@ remove(k)
 
 ## Reduce the axis labels to match the size of the example, approximately
 par(cex.axis=.75,cex.lab=.75)
-## Open a png device
+
+## Open a png device (doing this instead of copying is necessary to get the legend right)
 png(file="Plot3.png")
-## Plot Sub-metering data, use vs the date-time formed by combining the date and time fields
+
+## Plot Sub-metering data use vs the date-time formed by combining the date and time fields
 plot(strptime(paste(d$Date,d$Time),format="%Y-%m-%d %H:%M:%S"),d$Sub_metering_1,t="l",ylab="Energy sub metering",xlab="")
 lines(strptime(paste(d$Date,d$Time),format="%Y-%m-%d %H:%M:%S"),d$Sub_metering_2,col="red")
 lines(strptime(paste(d$Date,d$Time),format="%Y-%m-%d %H:%M:%S"),d$Sub_metering_3,col="blue")

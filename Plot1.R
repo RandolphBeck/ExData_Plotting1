@@ -16,9 +16,8 @@ d<-dat[c(which(k=="2007-02-01"),which(k=="2007-02-02")),]
 remove(dat)
 remove(k)
 
-par("bg"="transparent")
+## Produce a histogram of Global Active Power use and copy it to a png file
+par("bg"="transparent")  # set the background to match the target sample
 hist(d$Global_active_power,col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)")
 dev.copy(png,file="plot1.png")
 dev.off()
-
-remove(d)

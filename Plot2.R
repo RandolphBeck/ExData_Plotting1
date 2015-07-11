@@ -18,6 +18,7 @@ remove(k)
 
 ## Reduce the axis labels to match the size of the example, approximately
 par(cex.axis=.75,cex.lab=.75)
+
 ## Plot Global active power use vs the date-time formed by combining the date and time fields
 plot(strptime(paste(d$Date,d$Time),format="%Y-%m-%d %H:%M:%S"),d$Global_active_power,t="l",ylab="Global Active Power (kilowatts)",xlab="")
 

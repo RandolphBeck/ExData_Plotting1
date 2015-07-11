@@ -19,18 +19,22 @@ remove(k)
 ## Open a png device
 png(file="Plot4.png")
 
-## Set up a 2 x 2 array of graphs, filled columnwise
+## Set up a 2 x 2 array of graphs, filled rowwise
 par(mfrow=c(2,2))
+
+## Set up a date-time vector combining the Date and Time columns
 datetime<-strptime(paste(d$Date,d$Time),format="%Y-%m-%d %H:%M:%S")
 
+## Reduce the size of axis and label text to match the target examples
 par(cex.axis=.75,cex.lab=.75)
+
 ## Plot Global active power use vs the date-time formed by combining the date and time fields
 plot(datetime,d$Global_active_power,t="l",ylab="Global Active Power (kilowatts)",xlab="")
 
 ## Plot Voltage vs the date-time formed by combining the date and time fields
 plot(datetime, d$Voltage,t="l",ylab="Voltage")
 
-## Plot Sub-metering data, use vs the date-time formed by combining the date and time fields
+## Plot Sub-metering data use vs the date-time formed by combining the date and time fields
 plot(datetime,d$Sub_metering_1,t="l",ylab="Energy sub metering",xlab="")
 lines(datetime,d$Sub_metering_2,col="red")
 lines(datetime,d$Sub_metering_3,col="blue")
